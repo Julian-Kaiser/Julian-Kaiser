@@ -1,105 +1,58 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="auto">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Julian Kaisers persönliche Webseite – Projekte, Entwicklungen und Buch.">
-  <title>Julian Kaiser</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="CSS/style-standard.css">
-  <link rel="stylesheet" href="CSS/style-index.css">
+  <title>Julian Kaiser – Portfolio</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <!-- SIDEBAR -->
+
+  <!-- Sidebar -->
   <aside class="sidebar" id="sidebar">
-    <div class="sidebar-top">
-      <h2>Julian<br><span>Kaiser</span></h2>
-      <button id="sidebarToggle" aria-label="Menü umschalten">☰</button>
+    <div class="sidebar-header">
+      <h2>Julian<span>Kaiser</span></h2>
     </div>
     <nav class="sidebar-nav">
-      <ul>
-        <li><a href="index.html" class="active">Start</a></li>
-        <li><a href="about.html">Über mich</a></li>
-        <li><a href="projects.html">Projekte</a></li>
-        <li><a href="dev.html">Dev-Place</a></li>
-        <li><a href="contact.html">Kontakt</a></li>
-      </ul>
+      <a href="#" class="active">Home</a>
+      <a href="about.html">Über mich</a>
+      <a href="projects.html">Projekte</a>
+      <a href="dev.html">Dev‑Place</a>
     </nav>
-    <div class="sidebar-bottom">
-      <div class="theme-row" id="themeRow">
-        <div class="theme-points">
-          <span data-mode="auto">Auto</span>
-          <span data-mode="light">Hell</span>
-          <span data-mode="dark">Dunkel</span>
-          <div class="theme-marker" id="themeMarker"></div>
-        </div>
-      </div>
-      <div class="status-mini" id="miniStatus" title="Bereit">
-        <div class="avatar">J</div>
-        <div class="status-text">
-          <div class="name" id="miniName">Julian</div>
-          <div class="sub">Bereit</div>
-        </div>
-        <button class="settings-btn" id="openLogin" title="Login / Statistiken">⚙️</button>
-      </div>
+    <div class="theme-switcher">
+      <button data-theme="auto">Auto</button>
+      <button data-theme="light">Hell</button>
+      <button data-theme="dark">Dunkel</button>
     </div>
   </aside>
 
-  <!-- SIDEBAR OVERLAY -->
-  <div id="sidebarOverlay" class="sidebar-overlay hidden"></div>
+  <!-- Overlay (Mobile) -->
+  <div class="overlay" id="overlay"></div>
 
-  <!-- MAIN CONTENT -->
-  <main class="main-content fade-in">
-    <section class="intro">
-      <h1>Willkommen auf meiner Seite</h1>
-      <p>Hier findest du meine aktuellen Projekte, Entwicklungen und mehr.</p>
+  <!-- Main Content -->
+  <main class="main">
+    <header class="topbar">
+      <button id="menuToggle" class="menu-btn">☰</button>
+      <h1>Willkommen</h1>
+    </header>
+
+    <section class="intro fade-in">
+      <h1>Hey, ich bin Julian 👋</h1>
+      <p>Entwickler, Autor & kreativer Kopf. Hier findest du meine Projekte, Ideen und Tools.</p>
     </section>
 
-    <section class="cards">
-      <div class="card" onclick="window.location.href='about.html'">
-        <h3>Über mich</h3>
-        <p>Ein kurzer Einblick, wer ich bin und was ich mache.</p>
-      </div>
-      <div class="card" onclick="window.location.href='projects.html'">
-        <h3>Projekte</h3>
-        <p>Eine Übersicht meiner aktuellen und abgeschlossenen Projekte.</p>
-      </div>
-      <div class="card" onclick="window.location.href='book.html'">
-        <h3>Buch</h3>
-        <p>Infos zu meinem Schreibprojekt „Zwischen Schatten und Schweigen“.</p>
-      </div>
-      <div class="card" onclick="window.location.href='dev.html'">
-        <h3>Dev-Place</h3>
-        <p>Tools, Scripts und Tipps rund um Web- und Bot-Entwicklung.</p>
-      </div>
+    <section class="cards fade-in" id="cardsContainer">
+      <!-- Dynamische Cards werden hier geladen -->
     </section>
 
-    <section class="status">
-      <h2>Aktuell</h2>
-      <ul id="status-list">
-        <li>Lade aktuelle Daten...</li>
-      </ul>
-    </section>
+    <footer>
+      © <span id="year"></span> Julian Kaiser
+    </footer>
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© <span id="year"></span> Julian Kaiser — Alle Rechte vorbehalten</p>
-  </footer>
-
-  <!-- LOGIN MODAL -->
-  <div id="modal" class="modal hidden" aria-hidden="true">
-    <div class="modal-content">
-      <button id="modalClose" class="modal-close">✖</button>
-      <h3>Login / Statistik</h3>
-      <input type="text" id="username" placeholder="Name eingeben">
-      <button id="saveUser">Speichern</button>
-    </div>
-  </div>
-
-  <!-- JS -->
-  <script src="JS/script-standard.js"></script>
-  <script src="JS/script-index.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>
