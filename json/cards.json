@@ -1,17 +1,17 @@
 [
   {
-    "title": "GameCircl 🎮",
-    "description": "Mein interaktives Spielportal – mit Wahrheit oder Pflicht, Wer würde eher, Ich hab noch nie und mehr.",
+    "title": "GameCircl",
+    "description": "Interaktives Spielportal mit verschiedenen Spielmodi und dynamischen Inhalten.",
     "link": "projects.html#gamecircl"
   },
   {
-    "title": "Zwischen Schatten und Schweigen 📖",
-    "description": "Mein eigenes Buchprojekt – über das, was unausgesprochen bleibt.",
+    "title": "Zwischen Schatten und Schweigen",
+    "description": "Mein Buchprojekt – spannende Inhalte, keine Spoiler.",
     "link": "book.html"
   },
   {
-    "title": "Dev-Place ⚙️",
-    "description": "Scripts, Ressourcen und Tools für andere Entwickler.",
+    "title": "Dev-Place",
+    "description": "Tools, Scripts und Ressourcen für Entwickler.",
     "link": "dev.html"
   }
 ]
