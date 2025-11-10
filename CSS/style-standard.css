@@ -1,5 +1,5 @@
 /* =====================================
-   🌙 STANDARD-STYLES – GLOBAL FÜR ALLE SEITEN
+   🌐 STANDARD CSS – GLOBAL FÜR ALLE SEITEN
    ===================================== */
 
 /* ===== Reset ===== */
@@ -24,7 +24,7 @@ html, body {
   --accent: #0077ff;
   --card-bg: #ffffff;
   --border: #e0e0e0;
-  --shadow: rgba(0, 0, 0, 0.08);
+  --shadow: rgba(0,0,0,0.08);
 }
 
 body.dark {
@@ -33,46 +33,44 @@ body.dark {
   --accent: #4dabff;
   --card-bg: #1b1b1b;
   --border: #2c2c2c;
-  --shadow: rgba(0, 0, 0, 0.4);
+  --shadow: rgba(0,0,0,0.4);
 }
 
-/* ===== Layout-Grundstruktur ===== */
+/* ===== Layout ===== */
 body {
   display: flex;
   flex-direction: row;
   overflow-x: hidden;
 }
 
-/* ===== Sidebar ===== */
+/* ===== SIDEBAR ===== */
 .sidebar {
   width: 240px;
-  background-color: var(--card-bg);
+  background: var(--card-bg);
   border-right: 1px solid var(--border);
-  box-shadow: 2px 0 5px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   z-index: 10;
+  box-shadow: 2px 0 5px var(--shadow);
   transition: transform 0.3s ease;
 }
 
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.sidebar.open {
+  transform: translateX(0);
 }
 
-.sidebar-header h2 {
+.sidebar-top h2 {
   font-size: 1.4rem;
   line-height: 1.2;
 }
 
-.sidebar-header span {
+.sidebar-top span {
   color: var(--accent);
 }
 
@@ -99,47 +97,91 @@ body {
   color: #fff;
 }
 
-.sidebar-footer {
-  text-align: center;
+/* ===== Sidebar Bottom: Theme + Mini-Status ===== */
+.sidebar-bottom {
   margin-top: 20px;
 }
 
-#theme-toggle {
-  background: none;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-  color: var(--text);
+.theme-points {
+  display: flex;
+  position: relative;
+  background: var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
 }
 
-/* ===== Mobile Sidebar ===== */
-#menu-toggle {
+.theme-points span {
+  flex: 1;
+  text-align: center;
+  padding: 6px 0;
+  cursor: pointer;
+  font-size: 0.85rem;
+  z-index: 1;
+}
+
+.theme-marker {
+  position: absolute;
+  width: 33.33%;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 10px;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+
+/* Mini Status */
+.status-mini {
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px;
+  gap: 10px;
+}
+
+.status-mini .avatar {
+  width: 30px;
+  height: 30px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.status-text .name {
+  font-weight: 600;
+}
+
+.settings-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+/* ===== SIDEBAR OVERLAY ===== */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 5;
+  transition: opacity 0.2s;
+}
+
+.sidebar-overlay.hidden {
   display: none;
-  background: none;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
+  opacity: 0;
 }
 
-@media (max-width: 800px) {
-  .sidebar {
-    transform: translateX(-100%);
-  }
-
-  .sidebar.open {
-    transform: translateX(0);
-  }
-
-  #menu-toggle {
-    display: block;
-  }
-
-  body {
-    flex-direction: column;
-  }
-}
-
-/* ===== Hauptinhalt ===== */
+/* ===== MAIN CONTENT ===== */
 .main-content {
   margin-left: 260px;
   padding: 40px;
@@ -148,32 +190,38 @@ body {
 }
 
 @media (max-width: 800px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
   .main-content {
     margin-left: 0;
     padding: 20px;
   }
 }
 
-/* ===== Footer ===== */
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
   padding: 20px;
-  color: var(--text);
   opacity: 0.6;
   font-size: 0.9rem;
+  color: var(--text);
 }
 
-/* ===== Animationen ===== */
+/* ===== Animation ===== */
 .fade-in {
-  animation: fadeIn 0.5s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* ===== Karten ===== */
+/* ===== Cards ===== */
 .card {
   background: var(--card-bg);
   border: 1px solid var(--border);

@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Offizielle Webseite von Julian Kaiser – Projekte, Entwicklungen und aktuelle Arbeiten." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Julian Kaisers persönliche Webseite – Projekte, Entwicklungen und Buch.">
   <title>Julian Kaiser</title>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="CSS/style-standard.css" />
-  <link rel="stylesheet" href="CSS/style-index.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="CSS/style-standard.css">
+  <link rel="stylesheet" href="CSS/style-index.css">
 </head>
-
 <body>
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-header">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
       <h2>Julian<br><span>Kaiser</span></h2>
-      <button id="menu-toggle" aria-label="Menü umschalten">☰</button>
+      <button id="sidebarToggle" aria-label="Menü umschalten">☰</button>
     </div>
     <nav class="sidebar-nav">
       <ul>
@@ -27,31 +26,30 @@
         <li><a href="contact.html">Kontakt</a></li>
       </ul>
     </nav>
-
-      <div class="sidebar-bottom">
-        <div class="theme-row" id="themeRow">
-          <div class="theme-points">
-            <span data-mode="auto">Auto</span>
-            <span data-mode="light">Hell</span>
-            <span data-mode="dark">Dunkel</span>
-            <div class="theme-marker" id="themeMarker"></div>
-          </div>
-        </div>
-        <div class="status-mini" id="miniStatus" title="Bereit zum Spielen">
-          <div class="avatar">G</div>
-          <div class="status-text">
-            <div class="name" id="miniName">GameCircl</div>
-            <div class="sub">Bereit zum Spielen!</div>
-          </div>
-          <button class="settings-btn" id="openLogin" title="Login / Statistiken">⚙️</button>
+    <div class="sidebar-bottom">
+      <div class="theme-row" id="themeRow">
+        <div class="theme-points">
+          <span data-mode="auto">Auto</span>
+          <span data-mode="light">Hell</span>
+          <span data-mode="dark">Dunkel</span>
+          <div class="theme-marker" id="themeMarker"></div>
         </div>
       </div>
-    </aside>
+      <div class="status-mini" id="miniStatus" title="Bereit">
+        <div class="avatar">J</div>
+        <div class="status-text">
+          <div class="name" id="miniName">Julian</div>
+          <div class="sub">Bereit</div>
+        </div>
+        <button class="settings-btn" id="openLogin" title="Login / Statistiken">⚙️</button>
+      </div>
+    </div>
+  </aside>
 
-    <!-- OVERLAY FÜR MOBILE SIDEBAR -->
-    <div id="sidebarOverlay" class="overlay hidden"></div>
+  <!-- SIDEBAR OVERLAY -->
+  <div id="sidebarOverlay" class="sidebar-overlay hidden"></div>
 
-  <!-- Hauptinhalt -->
+  <!-- MAIN CONTENT -->
   <main class="main-content fade-in">
     <section class="intro">
       <h1>Willkommen auf meiner Seite</h1>
@@ -85,50 +83,22 @@
     </section>
   </main>
 
-  <!-- LOGIN / STATISTICS MODAL -->
-  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-panel">
-      <button class="modal-close" id="modalClose">✕</button>
-      <h3 id="modalTitle">Login & Statistiken</h3>
-      <br>
-
-      <div id="loginArea">
-        <label>
-          Benutzername
-          <input type="text" id="username" placeholder="Dein Name" />
-        </label>
-        <div class="login-actions">
-          <button id="saveUser" class="btn primary">Speichern</button>
-          <button id="logoutBtn" class="btn secondary">Ausloggen (lokal)</button>
-        </div>
-        <br>
-        <br>
-        <p class="muted">Das ist eine einfache Demo — deine Daten bleiben lokal in diesem Browser.</p>
-      </div>
-
-      <hr />
-      <br>
-
-      <div id="statsArea">
-        <h4>Deine Statistiken (Demo)</h4>
-        <div id="statsList">
-          <!-- dynamisch -->
-        </div>
-        <div class="stat-actions">
-          <button id="exportStats" class="btn">Export (JSON)</button>
-          <button id="importStats" class="btn">Import (JSON)</button>
-          <input id="importFile" type="file" accept="application/json" class="hidden" />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
     <p>© <span id="year"></span> Julian Kaiser — Alle Rechte vorbehalten</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- LOGIN MODAL -->
+  <div id="modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content">
+      <button id="modalClose" class="modal-close">✖</button>
+      <h3>Login / Statistik</h3>
+      <input type="text" id="username" placeholder="Name eingeben">
+      <button id="saveUser">Speichern</button>
+    </div>
+  </div>
+
+  <!-- JS -->
   <script src="JS/script-standard.js"></script>
   <script src="JS/script-index.js"></script>
 </body>
