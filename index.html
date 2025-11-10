@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Offizielle Webseite von Julian Kaiser – Projekte, Entwicklungen und aktuelle Arbeiten." />
+  <title>Julian Kaiser</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="CSS/style-standard.css" />
+  <link rel="stylesheet" href="CSS/style-index.css" />
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>Julian<br><span>Kaiser</span></h2>
+      <button id="menu-toggle" aria-label="Menü umschalten">☰</button>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="index.html" class="active">Start</a></li>
+        <li><a href="about.html">Über mich</a></li>
+        <li><a href="projects.html">Projekte</a></li>
+        <li><a href="dev.html">Dev-Place</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer">
+      <button id="theme-toggle" aria-label="Theme wechseln">🌙</button>
+    </div>
+  </aside>
+
+  <!-- Hauptinhalt -->
+  <main class="main-content fade-in">
+    <section class="intro">
+      <h1>Willkommen auf meiner Seite</h1>
+      <p>Hier findest du meine aktuellen Projekte, Entwicklungen und mehr.</p>
+    </section>
+
+    <section class="cards">
+      <div class="card" onclick="window.location.href='about.html'">
+        <h3>Über mich</h3>
+        <p>Ein kurzer Einblick, wer ich bin und was ich mache.</p>
+      </div>
+      <div class="card" onclick="window.location.href='projects.html'">
+        <h3>Projekte</h3>
+        <p>Eine Übersicht meiner aktuellen und abgeschlossenen Projekte.</p>
+      </div>
+      <div class="card" onclick="window.location.href='book.html'">
+        <h3>Buch</h3>
+        <p>Infos zu meinem Schreibprojekt „Zwischen Schatten und Schweigen“.</p>
+      </div>
+      <div class="card" onclick="window.location.href='dev.html'">
+        <h3>Dev-Place</h3>
+        <p>Tools, Scripts und Tipps rund um Web- und Bot-Entwicklung.</p>
+      </div>
+    </section>
+
+    <section class="status">
+      <h2>Aktuell</h2>
+      <ul id="status-list">
+        <li>Lade aktuelle Daten...</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year"></span> Julian Kaiser — Alle Rechte vorbehalten</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="JS/script-standard.js"></script>
+  <script src="JS/script-index.js"></script>
+</body>
+</html>
