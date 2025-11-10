@@ -1,0 +1,190 @@
+/* =====================================
+   🌙 STANDARD-STYLES – GLOBAL FÜR ALLE SEITEN
+   ===================================== */
+
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+/* ===== Farbvariablen ===== */
+:root {
+  --bg: #f5f5f5;
+  --text: #1e1e1e;
+  --accent: #0077ff;
+  --card-bg: #ffffff;
+  --border: #e0e0e0;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+body.dark {
+  --bg: #111;
+  --text: #eaeaea;
+  --accent: #4dabff;
+  --card-bg: #1b1b1b;
+  --border: #2c2c2c;
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Layout-Grundstruktur ===== */
+body {
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 240px;
+  background-color: var(--card-bg);
+  border-right: 1px solid var(--border);
+  box-shadow: 2px 0 5px var(--shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-header h2 {
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.sidebar-header span {
+  color: var(--accent);
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  margin-top: 30px;
+}
+
+.sidebar-nav a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+  transition: background 0.2s;
+}
+
+.sidebar-nav a:hover {
+  background-color: var(--border);
+}
+
+.sidebar-nav a.active {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.sidebar-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--text);
+}
+
+/* ===== Mobile Sidebar ===== */
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+
+  body {
+    flex-direction: column;
+  }
+}
+
+/* ===== Hauptinhalt ===== */
+.main-content {
+  margin-left: 260px;
+  padding: 40px;
+  flex: 1;
+  transition: color 0.2s, background 0.2s;
+}
+
+@media (max-width: 800px) {
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--text);
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+/* ===== Animationen ===== */
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Karten ===== */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 2px 5px var(--shadow);
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px var(--shadow);
+}
